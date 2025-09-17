@@ -1,0 +1,8 @@
+$techFilesFolder = "C:\Users\(username)\Desktop\TechLists"
+$techFiles = Get-ChildItem -Path $techFilesFolder -Filter "*.txt"
+$itemLookup = @{}
+foreach ($file in $techFile) {
+    $techName = $file.Basename
+    $dirList = Get-Content $file.FullName
+    foreach ($dir in $dirList) {
+        if (Test-path $dir) {
